@@ -23,7 +23,7 @@ def process_and_save_graph(x, adj, Y, save_dir="./pic"):
 
     target_node = 1701
     if target_node not in G.nodes:
-        print(f"错误：1701号节点不存在（图中仅包含{0}~{N - 1}号节点）")
+
         return
 
 
@@ -35,7 +35,7 @@ def process_and_save_graph(x, adj, Y, save_dir="./pic"):
     hop3_neighbors = nx.single_source_shortest_path_length(G, source=target_node, cutoff=2)
     relevant_nodes = list(hop3_neighbors.keys())
     subG = G.subgraph(relevant_nodes)
-    print(f"子图统计：{len(relevant_nodes)}个节点，{len(subG.edges())}条边")
+
 
 
     edge_list = list(subG.edges())
@@ -56,7 +56,7 @@ def process_and_save_graph(x, adj, Y, save_dir="./pic"):
     labels_path = os.path.join(save_dir, "node_labels.csv")
     df_edges.to_csv(edges_path, index=False)
     df_labels.to_csv(labels_path, index=False)
-    print(f"CSV文件已保存：\n- 边列表: {edges_path}\n- 节点标签: {labels_path}")
+
 
 
 
